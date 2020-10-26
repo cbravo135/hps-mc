@@ -1,4 +1,4 @@
 {
-    "apmass": [15, 25, 50],
-    "run_params": ["2pt3", "4pt4"]
+    "apmass": [150],
+    "run_params": ["4pt55"]
 }

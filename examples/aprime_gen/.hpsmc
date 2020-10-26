@@ -1,2 +1,6 @@
-[MG4]
-madgraph_dir = /work/slac/hps-mc/generators/madgraph4/src
+[Job]
+dry_run = False
+ignore_return_codes = True
+enable_ptags = False
+enable_copy_output_files = True
+delete_rundir = True

@@ -492,16 +492,16 @@ class AddMotherFullTruth(StdHepTool):
                             'add_mother_full_truth',
                             append_tok='mom_full_truth',
                             **kwargs)
-        if len(self.inputs) != 2: 
-            raise Exception("Must have 2 input files: a stdhep file and a lhe file in order")
-        input_file_1 = self.inputs[0]
-        base,ext = os.path.splitext(input_file_1)
-        if ext != '.stdhep':
-            raise Exception("The first input file must be a stdhep file")
-        input_file_2 = self.inputs[1]
-        base,ext = os.path.splitext(input_file_2)
-        if ext != '.lhe':
-            raise Exception("The second input file must be a lhe file")
+
+    def cmd_args(self):
+        
+        args = []
+         
+        args.append(self.input_files()[0].replace(".lhe.gz",".stdhep").replace(".lhe",".stdhep"))
+        args.append(self.inputs[0].replace(".stdhep",".lhe"))
+        args.append(self.output_files()[0])
+        
+        return args
         
 class MergePoisson(StdHepTool):
     """
@@ -790,6 +790,11 @@ class ExtractEventsWithHitAtHodoEcal(JavaTool):
         else:
             self.event_interval = 250
 
+        if "nevents" in kwargs:
+            self.nevents = kwargs['nevents']
+        else:
+            self.nevents = -1
+
         JavaTool.__init__(self,
                           name='filter_events',
                           java_class='org.hps.util.ExtractEventsWithHitAtHodoEcal',
@@ -806,9 +811,10 @@ class ExtractEventsWithHitAtHodoEcal(JavaTool):
         if self.num_hodo_hits > 0:
             args.append("-M")
             args.append(str(self.num_hodo_hits))
-        if self.nevents > 0:
-            args.append("-w")
-            args.append(str(self.nevents))
+        if self.nevents:
+            if self.nevents > 0:
+                args.append("-w")
+                args.append(str(self.nevents))
         return args
 
     def optional_parameters(self):

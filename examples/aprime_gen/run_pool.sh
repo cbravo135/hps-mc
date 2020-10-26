@@ -1,2 +1,2 @@
 #!/bin/sh
-hps-mc-batch pool -p 5 -d $PWD/scratch -l $PWD/logs -c .hpsmc -r 1:10 aprime_gen jobs.json
+hps-mc-batch pool -p 30 -d /scratch/hps -l /scratch/hps/logs -c .hpsmc -c ~/.hpsmc aprime_gen jobs.json

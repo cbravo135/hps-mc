@@ -1,0 +1,213 @@
+hpsmc.job:INFO Loading job parameters from file: /home/bravo/src/hps-mc/examples/aprime_gen/job.json
+hpsmc.job:INFO Changed output dir to abs path: /home/bravo/src/hps-mc/examples/aprime_gen/output
+hpsmc.job:INFO Running job: HPS MC Job
+hpsmc.job:DEBUG Found script '/home/bravo/src/hps-mc/install/lib/python/jobs/aprime_gen_job.py' from name 'aprime_gen'
+hpsmc.job:DEBUG Loading job script: /home/bravo/src/hps-mc/install/lib/python/jobs/aprime_gen_job.py
+hpsmc.job:INFO Job components: ['ap', 'unzip', 'lhe_tridents_displacetime', 'beam_coords']
+hpsmc.job:INFO Job parameters: {'nevents': 1000, 'run_params': '2pt3', 'apmass': 50.0, 'ctau': 1.0, 'target_z': -7.51, 'seed': 1234567, 'output_files': {'ap_unweighted_events_rot.stdhep': 'ap_events_1.stdhep'}, 'output_dir': 'output'}
+hpsmc.job:INFO Checking for config files: ['/home/bravo/.hpsmc', '/home/bravo/src/hps-mc/examples/aprime_gen/.hpsmc', '/home/bravo/.hpsmc']
+hpsmc.job:INFO Successfully read config from: ['/home/bravo/.hpsmc', '/home/bravo/src/hps-mc/examples/aprime_gen/.hpsmc', '/home/bravo/.hpsmc']
+[MG4]
+madgraph_dir=/home/bravo/src/hps-mc/generators/madgraph4/src
+[MG5]
+madgraph_dir=/home/bravo/src/hps-mc/generators/madgraph5/src
+[EGS5]
+egs5_dir=/home/bravo/src/hps-mc/generators/egs5
+[StdHepConverter]
+egs5_dir=/home/bravo/src/hps-mc/generators/egs5
+[SLIC]
+slic_dir=/home/bravo/src/slic/install
+hps_fieldmaps_dir=/home/bravo/src/hps-fieldmaps
+detector_dir=/home/bravo/src/hps-java/detector-data/detectors
+[JobManager]
+conditions_url=jdbc:sqlite:/home/bravo/work/hps/reco/hps_conditions_2020_08_17.db
+hps_java_bin_jar=/home/bravo/.m2/repository/org/hps/hps-distribution/4.5-SNAPSHOT/hps-distribution-4.5-SNAPSHOT-bin.jar
+java_args=-Xmx1g -XX:+UseSerialGC
+[FilterBunches]
+hps_java_bin_jar=/home/bravo/.m2/repository/org/hps/hps-distribution/4.5-SNAPSHOT/hps-distribution-4.5-SNAPSHOT-bin.jar
+[ExtractEventsWithHitAtHodoEcal]
+hps_java_bin_jar=/home/bravo/.m2/repository/org/hps/hps-distribution/4.5-SNAPSHOT/hps-distribution-4.5-SNAPSHOT-bin.jar
+[HPSTR]
+hpstr_install_dir=/home/bravo/src/hpstr/install
+hpstr_base=/home/bravo/src/hpstr
+[LCIOCount]
+lcio_bin_jar=/home/bravo/.m2/repository/org/lcsim/lcio/2.7.4-SNAPSHOT/lcio-2.7.4-SNAPSHOT-bin.jar
+[LCIOMerge]
+lcio_bin_jar=/home/bravo/.m2/repository/org/lcsim/lcio/2.7.4-SNAPSHOT/lcio-2.7.4-SNAPSHOT-bin.jar
+
+hpsmc.job:WARNING Config section not found: Job
+hpsmc.component:INFO ap:madgraph_dir:str=/home/bravo/src/hps-mc/generators/madgraph4/src
+hpsmc.component:INFO ap:nevents=1000 [required]
+hpsmc.component:INFO ap:run_params=2pt3 [required]
+hpsmc.component:INFO ap:seed=1234567 [optional]
+hpsmc.component:INFO ap:apmass=50.0 [optional]
+hpsmc.generators:INFO Set run card to 'run_card_2pt3.dat'
+hpsmc.component:INFO unzip:nevents=1000 [optional]
+hpsmc.component:INFO unzip:seed=1234567 [optional]
+hpsmc.component:INFO lhe_tridents_displacetime:ctau=1.0 [optional]
+hpsmc.component:INFO beam_coords:target_z=-7.51 [optional]
+hpsmc.job:INFO Creating run dir: /home/bravo/src/hps-mc/examples/aprime_gen/scratch
+hpsmc.job:DEBUG Changing to run dir: /home/bravo/src/hps-mc/examples/aprime_gen/scratch
+hpsmc.job:INFO No job steps specified so full job will be run.
+hpsmc.job:DEBUG Configuring file IO for component 'ap' with order 0
+hpsmc.job:DEBUG Setting inputs on 'ap' to: []
+hpsmc.job:DEBUG Configuring file IO for component 'unzip' with order 1
+hpsmc.job:DEBUG Setting inputs on 'unzip' to: ['ap_unweighted_events.lhe.gz']
+hpsmc.job:DEBUG Configuring file IO for component 'lhe_tridents_displacetime' with order 2
+hpsmc.job:DEBUG Setting inputs on 'lhe_tridents_displacetime' to: ['ap_unweighted_events.lhe']
+hpsmc.job:DEBUG Configuring file IO for component 'beam_coords' with order 3
+hpsmc.job:DEBUG Setting inputs on 'beam_coords' to: ['ap_unweighted_events.stdhep']
+hpsmc.job:DEBUG Setting up component: ap
+hpsmc.generators:INFO Copying '/home/bravo/src/hps-mc/generators/madgraph4/src/ap/MG_mini' to 'MG_mini'
+hpsmc.generators:INFO Command set to '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/bin/generate_events'
+hpsmc.generators:INFO Copying run card from '/home/bravo/src/hps-mc/generators/madgraph4/src/ap/run_card_2pt3.dat' to '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Cards/run_card.dat'
+hpsmc.generators:INFO Making run card '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Cards/run_card.dat' with nevents=1000, seed=1234567
+hpsmc.generators:INFO Setting nevents=1000 in run card
+hpsmc.generators:INFO Setting seed=1234567 in run card
+hpsmc.generators:INFO Copying param card from '/home/bravo/src/hps-mc/generators/madgraph4/src/ap/param_card.dat' to '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Cards/param_card.dat'
+hpsmc.generators:INFO Making param card '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Cards/param_card.dat'
+hpsmc.generators:INFO APMASS in param card set to 50
+hpsmc.job:DEBUG Setting up component: unzip
+hpsmc.job:DEBUG Setting up component: lhe_tridents_displacetime
+hpsmc.job:DEBUG Setting up component: beam_coords
+hpsmc.job:INFO Executing 'ap' with inputs [] and outputs ['ap_unweighted_events.lhe.gz']
+hpsmc.generators:INFO Executing 'ap' from '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/bin'
+hpsmc.component:INFO Executing 'ap' with command: /home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/bin/generate_events 0 ap
+Mon Oct 19 15:57:17 PDT 2020
+Generating 1000 events
+Cleaning  SubProcesses. 
+Cleaning Source:
+Cleaning lib:
+Cleaning bin:
+Compiling libraries
+Working on subprocess:
+    P1_e-n+_f+f-e-n+    cuts.f:21.28:
+
+      pass_point = passcuts(p)                                                 
+                            1
+Warning: Rank mismatch in argument 'p' at (1) (rank-2 and scalar)
+genps.f:54.53:
+
+      call gen_mom(iconfig,mincfig,maxcfig,invar,wgt,x,p)                      
+                                                     1
+Warning: Actual argument contains too few elements for dummy argument 'x' (25/50) at (1)
+
+real	0m0.218s
+user	0m0.214s
+sys	0m0.004s
+
+real	0m0.238s
+user	0m0.236s
+sys	0m0.001s
+
+real	0m0.471s
+user	0m0.454s
+sys	0m0.017s
+ Results   0.0000000000000000        0.0000000000000000                0   0.0000000000000000     
+ Updated results in file results.html
+Using random number seed offset =  1
+P1_e-n+_f+f-e-n+
+
+real	1m12.585s
+user	1m12.169s
+sys	0m0.397s
+
+real	0m47.715s
+user	0m47.284s
+sys	0m0.262s
+ Results   0.0000000000000000        0.0000000000000000                0   0.0000000000000000     
+ Updated results in file results.html
+ Results   0.0000000000000000        0.0000000000000000                0   0.0000000000000000     
+ Updated results in file results.html
+Using random number seed offset =  1
+P1_e-n+_f+f-e-n+
+
+real	1m16.426s
+user	1m15.964s
+sys	0m0.427s
+
+real	0m42.395s
+user	0m42.183s
+sys	0m0.205s
+ Results   0.0000000000000000        0.0000000000000000                0   0.0000000000000000     
+ Updated results in file results.html
+ Results   0.0000000000000000        0.0000000000000000                0   0.0000000000000000     
+ Updated results in file results.html
+Combining Events
+gfortran -std=legacy -O -ffixed-line-length-132 -c combine_events.f
+gfortran -std=legacy -O -ffixed-line-length-132 -o combine_events combine_events.o  rw_events.o ranmar.o  kin_functions.o open_file.o rw_routines.o alfas_functions.o setrun.o ../lib//libmodel.a ../lib//libpdf.a 
+mv combine_events ../bin/
+ No PDF is used, alpha_s(MZ) from param_card is used
+ Value of alpha_s from param_card:   0.11799999999999999     
+ The default order of alpha_s running is fixed to            2
+ Results.dat xsec =    0.0000000000000000     
+ Found            1  subprocesses
+ SubProcess/Channel     kept   read   xsec 
+P1_e-n+_f+f-e-n+/G1.001/    8872    8872 0.128E+04
+P1_e-n+_f+f-e-n+/G2.001/   13674   13674 0.128E+04
+ Found         1035  events writing first         1000
+ Unweighting selected         1000  events.
+Truncated  0.00% of cross section
+Can't locate Compress/Zlib.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/bin/addvertex.pl line 12.
+BEGIN failed--compilation aborted at /home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/bin/addvertex.pl line 12.
+mv: cannot stat ‘unweighted_events_V.lhe’: No such file or directory
+putting the banner
+cat: unweighted_events.lhe: No such file or directory
+P1_e-n+_f+f-e-n+
+/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap
+P1_e-n+_f+f-e-n+
+/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap
+/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap
+Mon Oct 19 16:01:26 PDT 2020
+hpsmc.generators:INFO Copying '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Events/ap_events.lhe.gz' to '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/ap_events.lhe.gz'
+hpsmc.generators:INFO Copying '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/MG_mini/ap/Events/ap_unweighted_events.lhe.gz' to '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/ap_unweighted_events.lhe.gz'
+hpsmc.job:INFO Execution of 'ap' took 248.850116 second(s)
+hpsmc.job:INFO Return code of 'ap' was 0
+hpsmc.job:INFO Executing 'unzip' with inputs ['ap_unweighted_events.lhe.gz'] and outputs ['ap_unweighted_events.lhe']
+hpsmc.tools:INFO Unzipped 'ap_unweighted_events.lhe.gz' to 'ap_unweighted_events.lhe'
+hpsmc.job:INFO Execution of 'unzip' took 0.000692 second(s)
+hpsmc.job:INFO Return code of 'unzip' was 0
+hpsmc.job:INFO Executing 'lhe_tridents_displacetime' with inputs ['ap_unweighted_events.lhe'] and outputs ['ap_unweighted_events.stdhep']
+hpsmc.component:INFO Executing 'lhe_tridents_displacetime' with command: stdhep_lhe_tridents_displacetime ap_unweighted_events.lhe ap_unweighted_events.stdhep -s 1 -l 1.0
+Writing to ap_unweighted_events.stdhep; expecting 1000 events
+ StdHepXdrWriteOpen: I/O initialized for StdHep only
+Applying decay length of 1.000000 mm
+          StdHepXdrEnd: 246 words i/o with 11422 efficiency
+hpsmc.job:INFO Execution of 'lhe_tridents_displacetime' took 0.003633 second(s)
+hpsmc.job:INFO Return code of 'lhe_tridents_displacetime' was 0
+hpsmc.job:INFO Executing 'beam_coords' with inputs ['ap_unweighted_events.stdhep'] and outputs ['ap_unweighted_events_rot.stdhep']
+hpsmc.component:INFO Executing 'beam_coords' with command: stdhep_beam_coords ap_unweighted_events.stdhep ap_unweighted_events_rot.stdhep -s 1 -Z -7.51
+ mcfio_Block: Unable to find block i.d. 101 in Stream 1 
+ mcfio_Block: Unable to find block i.d. 105 in Stream 1 
+ mcfio_Block: Unable to find block i.d. 101 in Stream 1 
+ mcfio_Block: Unable to find block i.d. 105 in Stream 1 
+ mcfio_Block: Unable to find block i.d. 106 in Stream 1 
+     StdHepXdrRead: end of file found
+Reading from ap_unweighted_events.stdhep; expecting 1000000 events
+ StdHepXdrReadOpen: successfully opened input stream 1
+          title: ap_unweighted_events.stdhep
+          date: Mon Oct 19 16:01:26 2020
+
+                    2 events
+                    8 blocks per event
+Writing to ap_unweighted_events_rot.stdhep; expecting 2 events
+ StdHepXdrWriteOpen: I/O initialized for StdHep only
+Rotating by 0.000000 radians in X, 0.030500 radians in Y, and 0.000000 radians in Z;
+beam size 0.000000 mm in X and 0.000000 mm in Y;
+target shifted by (X,Y,Z)=(0.000000,0.000000,-7.510000) mm
+ilbl = 100
+ilbl = 200
+End of file
+          StdHepXdrEnd: 757 words i/o with 10422 efficiency
+          StdHepXdrEnd: 247 words i/o with 11417 efficiency
+hpsmc.job:INFO Execution of 'beam_coords' took 0.003674 second(s)
+hpsmc.job:INFO Return code of 'beam_coords' was 0
+hpsmc.job:INFO Job execution took 248.859151 seconds
+hpsmc.job:DEBUG Creating output dir: /home/bravo/src/hps-mc/examples/aprime_gen/output
+hpsmc.job:INFO Copying output file: ap_unweighted_events_rot.stdhep -> ap_events_1.stdhep
+hpsmc.job:INFO Copying '/home/bravo/src/hps-mc/examples/aprime_gen/scratch/ap_unweighted_events_rot.stdhep' to '/home/bravo/src/hps-mc/examples/aprime_gen/output/ap_events_1.stdhep'
+hpsmc.job:DEBUG Running cleanup for component: ap
+hpsmc.job:DEBUG Running cleanup for component: unzip
+hpsmc.job:DEBUG Running cleanup for component: lhe_tridents_displacetime
+hpsmc.job:DEBUG Running cleanup for component: beam_coords
+hpsmc.job:INFO Successfully finished running job: A-prime generation using MadGraph

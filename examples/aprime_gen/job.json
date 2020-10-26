@@ -1,12 +1,12 @@
 {
-    "nevents": 1000,
-    "run_params": "1pt05",
-    "apmass": 50.0,
-    "ctau": 1.0,
-    "target_z": -5.0,
-    "seed": 1234567,
+    "nevents": 10000,
+    "run_params": "4pt55",
+    "apmass": 150,
+    "target_z": -7.51,
+    "seed": 1010234,
     "output_files": {
-        "ap_unweighted_events_rot.stdhep": "ap_events_1.stdhep"
+        "ap_unweighted_events_mom_full_truth_rot.stdhep": "aprime_150_4pt55_235.stdhep"
     },
-    "output_dir": "output"
+    "output_dir": "output",
+    "job_id": 235
 }

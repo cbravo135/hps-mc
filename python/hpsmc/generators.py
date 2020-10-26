@@ -109,7 +109,7 @@ class StdHepConverter(EGS5):
         return EGS5.execute(self, log_out, log_err)
 
     def output_files(self):
-        return [self.input_files()[0].replace(".lhe.gz", ".stdhep").replace(".lhe", ".stdhep")]
+        return [self.inputs[0].replace(".lhe.gz", ".stdhep").replace(".lhe", ".stdhep")]
 
 class MG(EventGenerator):
     """

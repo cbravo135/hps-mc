@@ -1,0 +1,20 @@
+{
+    "job_id": {{job.job_id}},
+    "nevents": 10000,
+    "run_params": "4pt55",
+    "target_z": -7.51,
+    "run_number": 10666,
+    "detector": "HPS_TY_iter4",
+    "steering_files": {
+        "readout": "/org/hps/steering/readout/PhysicsRun2019TrigSingles.lcsim",
+        "recon": "/org/hps/steering/recon/PhysicsRun2019_pass0_recon.lcsim"
+    },
+    "input_files": {
+        "/data/users/bravo/hps/lhe/4pt55/ap/150/aprime_150_4pt55_{{job.job_id}}.stdhep": "aprime.stdhep"
+    },
+    "output_files": {
+        "ptag:sim": "aprime_sim_{{job.job_id}}.slcio",
+        "ptag:recon": "aprime_recon_{{job.job_id}}.slcio"
+    },
+    "output_dir": "/data/users/bravo/hps/mc/4pt55GeV/ap/150/HPS_TY_iter4"
+}
